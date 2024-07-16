@@ -285,9 +285,11 @@ class SystemdSession {
       (await _object.getProperty(sessionName, 'Id')).asString();
   Future<bool> get active async =>
       (await _object.getProperty(sessionName, 'Active')).asBoolean();
-  Future<void> lock() => _object.callMethod(sessionName, 'Lock', [],
+  Future<void> lock({bool interactive = false}) => _object.callMethod(sessionName, 'Lock', [],
+        allowInteractiveAuthorization: interactive,
       replySignature: DBusSignature(''));
-  Future<void> terminate() => _object.callMethod(sessionName, 'Terminate', [],
+  Future<void> terminate({bool interactive = false}) => _object.callMethod(sessionName, 'Terminate', [],
+      allowInteractiveAuthorization: interactive,
       replySignature: DBusSignature(''));
 
   @override
