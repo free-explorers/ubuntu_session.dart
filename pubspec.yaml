@@ -14,7 +14,6 @@ dependencies:
   dbus: 
     git:
       url: https://github.com/free-explorers/dbus.dart
-      ref: workaround_for_dbus_broker_match_bug
   meta: ^1.7.0
 
 dev_dependencies:
